@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#8fc9f5"><meta name="description" content="병아리와 함께하는 나만의 토익 퀘스트">
+<link rel="manifest" href="manifest.webmanifest">
+<title>MY TOEIC QUEST</title>
+<style>
+:root{--sky:#a9d9fa;--blue:#75b9f0;--navy:#263b61;--ink:#293553;--muted:#7c89a6;--cream:#fffaf0;--pink:#ffdce8;--yellow:#ffe08a;--mint:#c9f0dc;--line:#e6eaf3;--white:#fff;--shadow:0 8px 22px #617ca51a}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#b7e1ff 0,#edf7ff 280px,#fffaf2 620px);font-family:system-ui,-apple-system,"Noto Sans KR",sans-serif;color:var(--ink);padding-bottom:90px}
+button,input,textarea,select{font:inherit}button{cursor:pointer;border:0}
+.app{max-width:780px;margin:auto;padding:16px 14px 24px}.top{display:flex;justify-content:space-between;align-items:center;margin:8px 2px 16px}.brand{font-weight:1000;font-size:20px;letter-spacing:-.7px;color:#fff;text-shadow:0 2px 0 #6e9fce}.brand span{color:#ffe28a}.date{font-size:12px;color:#52759a;background:#ffffffb8;padding:8px 12px;border-radius:20px}
+.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#7dbaf0,#b5e3ff);border:3px solid #fff;border-radius:28px;padding:20px;color:#fff;box-shadow:var(--shadow);min-height:164px}
+.hero h1{margin:0;font-size:25px;line-height:1.3;text-shadow:0 2px 0 #689bca}.hero p{margin:8px 0 0;font-size:13px;color:#f5fbff}.chick{position:absolute;right:14px;bottom:-4px;font-size:90px;filter:drop-shadow(0 5px 2px #5282a833)}.headband{position:absolute;right:18px;bottom:73px;font-size:10px;font-weight:900;color:#385078;background:#fff;border-radius:14px;padding:3px 8px;transform:rotate(8deg)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin:12px 0}.stat,.card{background:#ffffffed;border:1px solid #fff;border-radius:20px;box-shadow:var(--shadow)}.stat{padding:12px 10px;text-align:center}.stat .ico{font-size:22px}.stat b{display:block;font-size:18px;margin-top:2px}.stat small{color:var(--muted);font-size:11px}
+.card{padding:16px;margin:12px 0}.section-title{display:flex;align-items:center;justify-content:space-between;font-weight:900;font-size:17px;margin-bottom:12px}.pill{background:#fff0c7;color:#8c6820;border-radius:30px;padding:6px 11px;font-size:12px;font-weight:800}.progress{height:11px;background:#e9eef8;border-radius:20px;overflow:hidden;margin:10px 0}.progress i{display:block;height:100%;background:linear-gradient(90deg,#84c5f4,#82dfb4);border-radius:20px;transition:width .2s}
+.task{display:flex;align-items:center;gap:11px;padding:12px 10px;border:1px solid var(--line);border-radius:17px;margin:9px 0;background:#fff}.task.done{background:#f0fbf5;border-color:#cceedd}.check{width:25px;height:25px;border:2px solid #c8d2e3;border-radius:50%;display:grid;place-items:center;flex:none;color:white;font-weight:900}.done .check{background:#6dc99b;border-color:#6dc99b}.task-main{flex:1;min-width:0}.task-main b{display:block;font-size:14px}.task-main small{color:var(--muted);font-size:11px}.duration{font-size:11px;color:#687796;background:#f1f3fa;padding:6px 9px;border-radius:20px;white-space:nowrap}
+.primary{width:100%;padding:14px;border-radius:18px;background:linear-gradient(180deg,#ffe18e,#ffc95d);color:#674c1d;font-weight:950;box-shadow:0 4px 0 #e7ae48;margin-top:8px}.secondary{background:#eef6ff;color:#416e9b;padding:10px 13px;border-radius:13px;font-weight:800}.tabs{display:flex;gap:7px;overflow:auto;margin:12px 0}.tabs button{white-space:nowrap;padding:9px 13px;border-radius:20px;background:#fff;color:#71809e;font-weight:800;border:1px solid #edf0f6}.tabs button.active{background:#dff1ff;color:#347bb7;border-color:#c4e5ff}
+.daygrid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}.day{padding:9px 2px;border-radius:12px;background:#f3f6fb;color:#71809e;font-size:11px;font-weight:800}.day.active{background:#8bc8f4;color:#fff}.day.has{outline:2px solid #a7dfc2}
+.note{font-size:12px;line-height:1.6;color:#71809e;background:#fff8e8;border-radius:13px;padding:11px;margin-top:10px}.field{width:100%;border:1px solid var(--line);border-radius:12px;padding:11px;background:#fff;color:var(--ink);margin:5px 0 10px}.bottom{position:fixed;bottom:0;left:0;right:0;background:#ffffffed;backdrop-filter:blur(12px);border-top:1px solid #e8edf5;display:flex;justify-content:center;gap:0;padding:8px max(8px,env(safe-area-inset-left)) calc(8px + env(safe-area-inset-bottom));z-index:5}.bottom button{background:none;color:#8792aa;font-size:11px;font-weight:800;flex:1;max-width:150px;padding:5px}.bottom button span{display:block;font-size:21px;margin-bottom:2px}.bottom button.active{color:#4389c9}
+.hidden{display:none!important}.xp-pop{color:#42a777;font-size:12px;font-weight:900}.small{font-size:12px;color:var(--muted)}.row{display:flex;gap:8px;align-items:center}.row>*{flex:1}
+@media(min-width:650px){.layout{display:grid;grid-template-columns:1.4fr .9fr;gap:12px}.hero{min-height:185px}.chick{font-size:112px}.stats{gap:12px}}
+</style></head>
+<body><main class="app">
+<header class="top"><div class="brand">🐥 MY <span>TOEIC</span> QUEST</div><div class="date" id="todayLabel"></div></header>
+<section class="hero"><h1>오늘도 한 걸음 더!<br>토익 퀘스트 출발 ✨</h1><p>작은 숙제를 하나씩 클리어해 봐요.</p><div class="headband">TOEIC</div><div class="chick">🐥</div></section>
+<div class="stats">
+ <div class="stat"><div class="ico">🌱</div><b id="level">Lv.1</b><small>꼬마 도전자</small></div>
+ <div class="stat"><div class="ico">⭐</div><b id="xp">0 XP</b><small id="nextXp">다음 레벨까지 100 XP</small></div>
+ <div class="stat"><div class="ico">🔥</div><b id="streak">0일</b><small>연속 학습</small></div>
+</div>
+<nav class="tabs" id="tabs">
+ <button class="active" data-view="home">오늘의 퀘스트</button><button data-view="plan">4주 커리큘럼</button><button data-view="stats">학습 통계</button><button data-view="wrong">오답노트</button><button data-view="settings">설정</button>
+</nav>
+<section id="homeView" class="view">
+ <div class="layout"><div>
+  <div class="card"><div class="section-title"><span>🗓️ 오늘의 숙제</span><span class="pill" id="dayPill">DAY 01 / 28</span></div>
+   <div class="row"><div class="small" id="summary">오늘의 퀘스트를 완료해 보세요!</div><b id="taskCount">0 / 0</b></div><div class="progress"><i id="progressBar" style="width:0%"></i></div>
+   <div id="tasks"></div><button class="primary" id="completeBtn">✨ 오늘의 퀘스트 확인하기</button>
+   <div class="note" id="carryNote">미완료 숙제는 다음 학습일에도 남아 있어요. 이미 받은 경험치는 중복 지급되지 않아요.</div>
+  </div>
+ </div><div>
+  <div class="card"><div class="section-title">💖 이번 주 학습 현황</div><div style="text-align:center;padding:8px"><div style="font-size:36px;font-weight:950;color:#50ad89" id="weekPercent">0%</div><div class="small" id="weekText">이번 주 퀘스트 완료율</div></div><div class="progress"><i id="weekBar" style="width:0%"></i></div></div>
+  <div class="card"><div class="section-title">🧁 나의 4주 여정</div><div id="journey" class="small"></div></div>
+ </div></div>
+</section>
+<section id="planView" class="view hidden"><div class="card"><div class="section-title">📚 4주 커리큘럼 <span class="pill">28일 프로젝트</span></div><div class="daygrid" id="calendar"></div><div class="note">1~2주 차는 월~토 학습, 일요일 복습·휴식이에요. 700+ 교재는 12일에 20 Day를 끝내도록 배분했어요.</div></div><div class="card"><div class="section-title" id="planTitle">DAY 01 학습 내용</div><div id="planDetail"></div></div></section>
+<section id="statsView" class="view hidden"><div class="card"><div class="section-title">📈 나의 성장 기록</div><div class="stats"><div class="stat"><div class="ico">✅</div><b id="doneTotal">0</b><small>완료 퀘스트</small></div><div class="stat"><div class="ico">⏱️</div><b id="minutesTotal">0분</b><small>기록한 학습 시간</small></div><div class="stat"><div class="ico">🎯</div><b id="rateTotal">0%</b><small>전체 완료율</small></div></div><div class="section-title">주차별 진행</div><div id="weeklyStats"></div></div></section>
+<section id="wrongView" class="view hidden"><div class="card"><div class="section-title">📝 오답노트 <span class="pill" id="wrongCount">0개</span></div><label class="small">파트</label><select class="field" id="wrongPart"><option>Part 2</option><option>Part 3</option><option>Part 4</option><option>Part 5</option><option>Part 6</option><option>Part 7</option><option>어휘</option></select><label class="small">틀린 문제 / 키워드</label><input class="field" id="wrongQuestion" placeholder="예: 접속사와 전치사 구분"><label class="small">틀린 이유와 정답 근거 (한 줄)</label><textarea class="field" id="wrongReason" rows="2" placeholder="예: 뒤에 완전한 문장이 와서 접속사 필요"></textarea><button class="primary" id="addWrong">오답 저장하기 +5 XP</button><div id="wrongList" style="margin-top:12px"></div></div></section>
+<section id="settingsView" class="view hidden"><div class="card"><div class="section-title">⚙️ 학습 설정</div><label class="small">학습 시작일</label><input type="date" id="startDate" class="field"><div class="note">시작일을 바꾸면 4주 일정의 날짜가 다시 계산돼요. 완료 기록과 XP는 유지됩니다.</div><button class="primary" id="saveSettings">시작일 저장</button><div style="height:12px"></div><button class="secondary" id="exportData">학습 기록 백업하기</button> <button class="secondary" id="resetData">전체 기록 초기화</button></div></section>
+</main>
+<footer class="bottom"><button class="active" data-view="home"><span>🏡</span>홈</button><button data-view="plan"><span>📅</span>커리큘럼</button><button data-view="stats"><span>📊</span>통계</button><button data-view="wrong"><span>📝</span>오답노트</button><button data-view="settings"><span>⚙️</span>설정</button></footer>
+<script>
+const KEY='myToeicQuest_v1';
+const nextMon=()=>{let d=new Date();d.setHours(12,0,0,0);let delta=(8-d.getDay())%7||7;d.setDate(d.getDate()+delta);return d.toISOString().slice(0,10)};
+const initial={startDate:nextMon(),done:{},xp:0,wrong:[],minutes:{},claimed:{},lastStudy:null};
+let data;try{data={...initial,...JSON.parse(localStorage.getItem(KEY)||'{}')};}catch{data={...initial};}
+const save=()=>localStorage.setItem(KEY,JSON.stringify(data));
+const $=id=>document.getElementById(id);
+const dateAt=(n)=>{let d=new Date(data.startDate+'T12:00:00');d.setDate(d.getDate()+n);return d};
+const keyDate=d=>d.toISOString().slice(0,10);
+const dayIndex=()=>Math.max(0,Math.min(27,Math.floor((new Date(new Date().toDateString())-new Date(data.startDate+'T00:00:00'))/86400000)));
+const studyDay=n=>{let count=0;for(let i=0;i<=n;i++){if(dateAt(i).getDay()!==0)count++;}return count;};
+const bookRange=s=>s<=8?`${String((s-1)*2+1).padStart(2,'0')}~${String(s*2).padStart(2,'0')}`:`${String(17+s-9).padStart(2,'0')}`;
+function tasksFor(n){
+ const d=dateAt(n),w=Math.floor(n/7)+1,dow=d.getDay(),sd=studyDay(n),tasks=[];
+ const add=(id,name,detail,min)=>tasks.push({id:`${n}-${id}`,name,detail,min});
+ if(dow===0){add('review','주간 오답 복습','이번 주 틀린 Part 5 다시 풀기',30);add('rest','휴식 & 다음 주 준비','가벼운 복습 후 충분히 쉬기',0);return tasks;}
+ if(w<=2){
+  const range=bookRange(sd);
+  add('voca','노랭이 보카',sd<=10?`Day ${String((sd-1)*3+1).padStart(2,'0')}~${String(sd*3).padStart(2,'0')} · 표제어 + 짝꿍 표현`:'누적 오답·헷갈리는 어휘 복습',30);
+  add('lc','700+ LC',`교재 Day ${range} · 파트별 유형 학습`,90);
+  add('rc','700+ RC',`교재 Day ${range} · 문법 공식 + 정답 근거 찾기`,90);
+ }else if(w===3){
+  const isMock=[1,3,5].includes(dow);
+  add('voca','노랭이 보카','Day 01~30 2회독 · 하루 10 Day씩',30);
+  if(isMock){add('mock','실전 3 모의고사','LC 45분 + RC 75분 실전 시간 엄수',120);add('analysis','LC·RC 오답 분석','Part 2 안 들린 문장 + Part 5 오답',90);}
+  else{add('rcReview','실전 3 RC 오답 분석','Part 6·7 정답 근거 지문에 밑줄',90);add('weak','700+ 약점 보완','자주 틀린 Part 5 문법 단원 복습',120);}
+ }else{
+  add('voca','노랭이 보카','누적 오답 및 헷갈리는 어휘 최종 점검',30);
+  if([1,3,5].includes(dow)){add('mock','실전 3 풀세트','답안지 마킹 포함 · 실전 시간 준수',120);add('p5','Part 5 오답노트','틀린 이유를 문법 공식 한 줄로 정리',90);}
+  else{add('final','최종 오답 정리','Part 5 오답노트 + 700+ 요약본',120);add('lcFinal','LC 패러프레이징','Part 3·4 자주 틀리는 표현 정리',90);}
+ }
+ return tasks;
+}
+function allTasks(){let a=[];for(let n=0;n<28;n++)a.push(...tasksFor(n));return a;}
+function isDone(t){return !!data.done[t.id]}
+function award(t){if(!data.claimed[t.id]){data.xp+=20;data.claimed[t.id]=true;}}
+function render(){
+ const n=dayIndex(),d=dateAt(n),currentTasks=tasksFor(n),backlog=[];for(let j=0;j<n;j++){for(const old of tasksFor(j)){if(!isDone(old))backlog.push({...old,overdue:true,due:j});}}const tasks=[...backlog,...currentTasks],done=tasks.filter(isDone).length;
+ $('todayLabel').textContent=new Date().toLocaleDateString('ko-KR',{month:'long',day:'numeric',weekday:'short'});
+ $('dayPill').textContent=`DAY ${String(n+1).padStart(2,'0')} / 28`;
+ $('summary').textContent=d.getDay()===0?'복습과 휴식의 날이에요.':`오늘의 숙제 + 미완료 ${backlog.length}개 · 약 ${currentTasks.reduce((a,t)=>a+t.min,0)}분`; 
+ $('taskCount').textContent=`${done} / ${tasks.length}`;$('progressBar').style.width=(done/tasks.length*100)+'%';
+ $('tasks').innerHTML=tasks.map(t=>`<div class="task ${isDone(t)?'done':''}" data-id="${t.id}"><button class="check" aria-label="완료">${isDone(t)?'✓':''}</button><div class="task-main"><b>${t.overdue?'↩ 미완료 · ':''}${t.name}</b><small>${t.overdue?`DAY ${String(t.due+1).padStart(2,'0')}에서 이월 · `:''}${t.detail}</small></div><span class="duration">${t.min? t.min+'분':'휴식'}</span></div>`).join('');
+ document.querySelectorAll('.task').forEach(el=>el.onclick=()=>toggle(el.dataset.id));
+ $('completeBtn').textContent=done===tasks.length?'🎉 밀린 숙제까지 모두 완료!':'✨ 숙제 하나씩 눌러 완료하기';
+ $('carryNote').textContent='이전 날짜의 미완료 숙제도 오늘 목록 맨 위에 표시돼요. 완료한 숙제는 XP가 한 번만 지급돼요.';
+ const total=allTasks().length,completed=allTasks().filter(isDone).length,level=Math.floor(data.xp/100)+1;
+ $('level').textContent='Lv.'+level;$('xp').textContent=data.xp+' XP';$('nextXp').textContent=`다음 레벨까지 ${100-data.xp%100} XP`;
+ $('streak').textContent=streak()+'일';$('weekPercent').textContent=Math.round(weekRate(n))+'%';$('weekBar').style.width=weekRate(n)+'%';$('weekText').textContent=`${Math.floor(n/7)+1}주 차 퀘스트 완료율`;
+ $('journey').innerHTML=['개념 집중','실전 적응','실전 완성','최종 점검'].map((x,i)=>`<p>${i+1<=Math.floor(n/7)+1?'🟢':'⚪'} ${i+1}주 차 · ${x}</p>`).join('');
+ renderCalendar(n);renderStats();renderWrong();
+}
+function toggle(id){let all=allTasks(),t=all.find(x=>x.id===id);if(!t)return;if(data.done[id]){delete data.done[id];if(data.claimed[id]){data.xp=Math.max(0,data.xp-20);delete data.claimed[id];}}else{data.done[id]=true;award(t);if(t.min)data.minutes[id]=t.min;}save();render();}
+function streak(){let count=0;for(let i=dayIndex();i>=0;i--){if(dateAt(i).getDay()===0)continue;let ts=tasksFor(i).filter(t=>t.min>0);if(ts.length&&ts.every(isDone))count++;else if(i!==dayIndex())break;}return count;}
+function weekRate(n){let start=Math.floor(n/7)*7,ts=[];for(let i=start;i<Math.min(start+7,28);i++)ts.push(...tasksFor(i));return ts.length?ts.filter(isDone).length/ts.length*100:0;}
+function renderCalendar(n){$('calendar').innerHTML=Array.from({length:28},(_,i)=>`<button class="day ${i===n?'active':''} ${tasksFor(i).every(isDone)?'has':''}" data-day="${i}">${i+1}<br>${['일','월','화','수','목','금','토'][dateAt(i).getDay()]}</button>`).join('');document.querySelectorAll('.day').forEach(b=>b.onclick=()=>{let i=+b.dataset.day;$('planTitle').textContent=`DAY ${String(i+1).padStart(2,'0')} 학습 내용`;let ts=tasksFor(i);$('planDetail').innerHTML=ts.map(t=>`<div class="task ${isDone(t)?'done':''}"><span>${isDone(t)?'✅':'🐣'}</span><div class="task-main"><b>${t.name}</b><small>${t.detail}</small></div><span class="duration">${t.min}분</span></div>`).join('');});document.querySelector(`.day[data-day="${n}"]`)?.click();}
+function renderStats(){let ts=allTasks(),done=ts.filter(isDone).length,mins=Object.values(data.minutes).reduce((a,b)=>a+b,0);$('doneTotal').textContent=done;$('minutesTotal').textContent=mins+'분';$('rateTotal').textContent=Math.round(done/ts.length*100)+'%';$('weeklyStats').innerHTML=[0,1,2,3].map(w=>{let a=[];for(let i=w*7;i<w*7+7;i++)a.push(...tasksFor(i));let p=a.filter(isDone).length/a.length*100;return `<p><b>${w+1}주 차</b> · ${Math.round(p)}%<div class="progress"><i style="width:${p}%"></i></div></p>`}).join('');}
+function renderWrong(){$('wrongCount').textContent=data.wrong.length+'개';$('wrongList').innerHTML=data.wrong.slice().reverse().map((x,i)=>`<div class="task"><div class="task-main"><b>${x.part} · ${escapeHtml(x.question)}</b><small>${escapeHtml(x.reason)}</small></div><button class="secondary" data-del="${data.wrong.length-1-i}">삭제</button></div>`).join('');document.querySelectorAll('[data-del]').forEach(b=>b.onclick=()=>{data.wrong.splice(+b.dataset.del,1);save();renderWrong();});}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function show(v){document.querySelectorAll('.view').forEach(x=>x.classList.add('hidden'));$(v+'View').classList.remove('hidden');document.querySelectorAll('[data-view]').forEach(x=>x.classList.toggle('active',x.dataset.view===v));if(v==='plan')renderCalendar(dayIndex());}
+document.querySelectorAll('[data-view]').forEach(b=>b.onclick=()=>show(b.dataset.view));
+$('addWrong').onclick=()=>{let q=$('wrongQuestion').value.trim(),r=$('wrongReason').value.trim();if(!q||!r){alert('문제와 틀린 이유를 입력해 주세요!');return;}data.wrong.push({part:$('wrongPart').value,question:q,reason:r,date:keyDate(new Date())});data.xp+=5;$('wrongQuestion').value='';$('wrongReason').value='';save();renderWrong();render();alert('오답 저장 완료! +5 XP 🐥');};
+$('saveSettings').onclick=()=>{if($('startDate').value){data.startDate=$('startDate').value;save();render();alert('학습 시작일을 저장했어요!');}};
+$('exportData').onclick=()=>{let blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='my-toeic-quest-backup.json';a.click();URL.revokeObjectURL(a.href);};
+$('resetData').onclick=()=>{if(confirm('모든 숙제와 XP, 오답 기록을 초기화할까요?')){data={...initial,startDate:data.startDate};save();render();}};
+$('startDate').value=data.startDate;
+render();
+if('serviceWorker' in navigator && location.protocol.startsWith('http'))navigator.serviceWorker.register('./sw.js').catch(()=>{});
+</script></body></html>
