@@ -1,0 +1,10 @@
+{
+  "name": "MY TOEIC QUEST",
+  "short_name": "TOEIC QUEST",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#fffaf2",
+  "theme_color": "#8fc9f5",
+  "lang": "ko",
+  "icons": []
+}
